@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br><br>
+<div class="container">
+  <div class="card mb-3" >
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{product.product_image.url}}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="card-title">Category : {{product.product_catgory}}</h4><br>
+          <h5 class="card-title">{{product.product_name}}</h5><br>
+          <p class="card-text">{{product.product_price}}</p><br>
+          <p class="card-text">{{product.product_description}}</p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+                  <br><br>
+                  <br><br>
+                  <br><br>
+                  <br><br>
+                  <br><br>
+                  <br><br>
+                  <br><br>
+                  <br><br>
+                  <br><br>
+                  <br><br>
+                  <br><br>
+                  <br><br>
+
+{% endblock content %}
+

@@ -63,9 +63,12 @@ def register_view(request):
             return redirect('register')
 
 
-
-
     return render(request,'register.html', {'form' : form })
 
 
- 
+def product_view(request, pk):
+    product=Product.objects.get(id = pk )
+            
+
+    return render(request,'product.html', {'product':product})
+
