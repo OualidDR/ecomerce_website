@@ -2,8 +2,9 @@
 
 {% block content %}
 
-<br><br>
+
 <div class="container">
+  <br><br>
   <div class="card mb-3" >
     <div class="row g-0">
       <div class="col-md-4">
@@ -11,11 +12,30 @@
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h4 class="card-title">Category : {{product.product_catgory}}</h4><br>
-          <h5 class="card-title">{{product.product_name}}</h5><br>
-          <p class="card-text">{{product.product_price}}</p><br>
-          <p class="card-text">{{product.product_description}}</p>
+          <center>
+          <h4 class="card-title">Category : {{product.product_catgory}}</h4>
+          <h5 class="card-title">{{product.product_name}}</h5>
+          <h6 class="card-title">{{product.product_name}}</h6>
           
+          {% if product.is_sale %}
+          <div class= "d-flex justify-content-center small text-warning mb-2">
+            <div class ="bi-star-fill"></div>
+            &nbsp;&nbsp;sale!&nbsp;&nbsp;
+            <div class = "bi-star-fill"></div>
+            </div>
+            <!-- Product price-->
+            <strike>{{product.product_price}}</strike> Dh
+            <br>
+            {{product.sell_price}} Dh
+
+          {% else %}
+          ${{product.product_price}}
+
+          {% endif %}
+          <br>
+          <a href={%url 'home'%} class = "btn btn-secondary">Home<a>
+
+          </centre>
         </div>
       </div>
     </div>
@@ -32,8 +52,8 @@
                   <br><br>
                   <br><br>
                   <br><br>
-                  <br><br>
-                  <br><br>
+                  
+                                    
 
 {% endblock content %}
 

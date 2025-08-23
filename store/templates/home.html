@@ -31,12 +31,20 @@
                                     <!-- Product name-->
                                     <h5 class="fw-bolder">{{product.product_name}}</h5>
                                     <h6 class="fw-bolder">{{product.product_catgory}}</h6>
+                                    <!-- sales-->
+                                <div class= "d-flex justify-content-center small text-warning mb-2">
+                                    <div class ="bi-star-fill"></div>
+                                    &nbsp;&nbsp;sale!&nbsp;&nbsp;
+                                    <div class = "bi-star-fill"></div>
+                                    </div>
                                     <!-- Product price-->
                                     <strike>{{product.product_price}}</strike> Dh
                                     <br>
                                     {{product.sell_price}} Dh
+
                                 </div>
                             </div>
+                            
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'product' product.id %}">Product details</a></div>
@@ -56,6 +64,7 @@
                                 <h5 class="fw-bolder">{{product.product_name}}</h5>
                                 <h6 class="fw-bolder">{{product.product_catgory}}</h6>
                                 <!-- Product price-->
+                                 
                                 {{product.product_price}} Dh
                             </div>
                         </div>
