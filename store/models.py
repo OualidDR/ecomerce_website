@@ -32,13 +32,13 @@ class Customer(models.Model) :
 #all of oure products
 class Product(models.Model) :
     product_name        = models.CharField(max_length=50)
-    product_price       = models.DecimalField(max_digits=10, decimal_places=4, default=0)
+    product_price       = models.DecimalField(max_digits=7, decimal_places=2, default=0)
     product_description = models.CharField(max_length=50, default='', blank=True, null=True)
     product_catgory     = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
     product_image       = models.ImageField(upload_to='uploads/product/')
     #add sel stuff
     is_sale             = models.BooleanField(default=False)
-    sell_price          = models.DecimalField(max_digits=10, decimal_places=4, default=0)
+    sell_price          = models.DecimalField(max_digits=7, decimal_places=2, default=0)
 
     def __str__(self):
         return self.product_name
