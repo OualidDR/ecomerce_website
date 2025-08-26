@@ -30,7 +30,7 @@ def login_view(request):
             messages.success(request, ("You Have been Logged In !"))
             return redirect('home')
         else:
-            messages.success(request, ("There was an error please try egain  !"))
+            messages.success(request, ("There was an error please try again  !"))
             return redirect('login')
 
     else :
@@ -72,3 +72,7 @@ def product_view(request, pk):
 
     return render(request,'product.html', {'product':product})
 
+
+def category_view(request):
+    
+    return render(request,'category.html', {})
