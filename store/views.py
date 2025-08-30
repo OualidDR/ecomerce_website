@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Product
+from .models import Product, Category
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -73,6 +73,17 @@ def product_view(request, pk):
     return render(request,'product.html', {'product':product})
 
 
-def category_view(request):
+def category_view(request, foo):
+
+    foo = foo.replace ('-',' ')
+    # Grab the category from the url 
+    try : 
+        # Look up the category 
+        category = Category.objects.get(name = foo)
+        products = Product.objects.filter(product_catgory = category)
+        return render(request,'category.html', {'products': products, 'category' : category})
+    except:
+        messages.success(request, ("Oops This Categogy doesn't exist ....! "))
+        return redirect('home')
     
-    return render(request,'category.html', {})
+    

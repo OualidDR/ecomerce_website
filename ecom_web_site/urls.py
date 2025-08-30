@@ -13,7 +13,7 @@ urlpatterns = [
     path('login', login_view, name="login"),
     path('logout', logout_view, name="logout"),
     path('register', register_view, name="register"),
-    path('category', category_view, name="category"),
+    path('category/<str:foo>', category_view, name="category"),
     path('product/<int:pk>', product_view, name="product")
 
 ] 

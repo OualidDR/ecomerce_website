@@ -1,45 +1,49 @@
-
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container px-4 px-lg-5">
-        <a class="navbar-brand text-3xl font-bold text-gray-800 mb-2" href="{% url 'home'%} ">RAHTI STORE</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <a class="navbar-brand text-3xl font-bold text-gray-800 mb-2" href="{% url 'home' %}">RAHTI STORE</a>
+        
+        <!-- Bouton mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Liens -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'home'%}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'about'%}">About</a></li>
-               {% if user.is_authenticated  %}
-                <li class="nav-item"><a class="nav-link" href="{% url 'logout'%}">Logout</a></li>
-                <div class="dropdown">
-                    <button class="btn btn-light dropdown-toggle" type="button" id="shopDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                      Shop
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="shopDropdown">
-                      <li><a class="dropdown-item" href="#!">All Products</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                      <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                    </ul>
-                  </div>
-                
-               {% else %}
-                <li class="nav-item"><a class="nav-link" href="{% url 'login'%}">Login</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'register'%}">Register</a></li>
-               {% endif %}
-            
-                {% comment %} <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">All Products</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                        <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                    </ul>
-                </li> {% endcomment %}
-                
-                    
-                  
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+
+                    <!-- Dropdown Shop -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                           Categories
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="shopDropdown">
+                            <li><a class="dropdown-item" href="{% url 'home' %}">All Products</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'books' %}">books</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'cell phones' %}">cell phones</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+                {% endif %}
             </ul>
+
+            <!-- Bouton panier -->
             <form class="d-flex">
                 <button class="btn btn-outline-dark" type="submit">
                     <i class="bi-cart-fill me-1"></i>
